@@ -1,1 +1,73 @@
-<p>manager-edit works!</p>
+<div class="container">
+  <h3 mat-dialog-title>Inventory id: {{data.element.id}}</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input class="form-control" placeholder="Id" [(ngModel)]="data.element.id" name="id" required >
+      </mat-form-field>
+    </div>
+
+    <!--Textarea for demo purposes-->
+    <div class="form">
+      <mat-form-field color="accent">
+        <textarea matInput #input class="form-control" placeholder="foodItems" [(ngModel)]="data.element.foodItems" name="foodItems" required></textarea>
+       </mat-form-field>
+    </div>
+
+    <!--Contains mat-hint for characters count and has maxLengt set-->
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="requiredQty" [(ngModel)]="data.element.requiredQty" name="requiredQty" required >
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+        <mat-form-field color="accent">
+          <input matInput placeholder="vendorOne" [(ngModel)]="data.element.vendorOne" name="vendorOne">
+        </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="vendorTwo" [(ngModel)]="data.element.vendorTwo" name="vendorTwo">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="receivedQty" [(ngModel)]="data.element.receivedQty" name="receivedQty">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="status" [(ngModel)]="data.element.status" name="status">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="bakery" [(ngModel)]="data.element.bakery" name="bakery">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="italian" [(ngModel)]="data.element.italian" name="italian">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="indian" [(ngModel)]="data.element.indian" name="indian">
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="stopEdit(data.element)" >Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1"  >Cancel</button>
+    </div>
+  </form>
+</div>

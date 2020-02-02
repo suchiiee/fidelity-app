@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagerService } from './manager.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ManagerEditComponent } from './manager-edit/manager-edit.component';
 
 export interface PeriodicElement {
+  id:number;
   foodItems : string;
   requiredQty: string;
   vendorOne: string;
@@ -23,7 +26,7 @@ export interface PeriodicElement {
 export class ManagerComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['foodItems','requiredQty', 'vendorOne', 'vendorTwo', 'receivedQty', 'status', 'bakery', 'italian', 'indian'];
+  displayedColumns: string[] = ['foodItems','requiredQty', 'vendorOne', 'vendorTwo', 'receivedQty', 'status', 'bakery', 'italian', 'indian','actions'];
   dataSource;
 
   isReadOnly = true;
@@ -31,8 +34,8 @@ export class ManagerComponent implements OnInit {
 
 
 
-  constructor( private inventorySrv: ManagerService) {
-//testing
+  constructor( private inventorySrv: ManagerService,public dialog: MatDialog) {
+
     this.inventorySrv.getInventoryData().subscribe( data => {
         this.dataSource = data;
 
@@ -41,6 +44,21 @@ export class ManagerComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  startEdit(element:PeriodicElement) {
+
+    const dialogRef = this.dialog.open(ManagerEditComponent, {
+      data: {element},
+      width: '25vw',
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 1) {
+
+      }
+    });
   }
 
 

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder ,FormGroup, FormControl, Validators} from '@angular/forms';
 import { Roles } from './login';
 import { Router, RouterModule } from '@angular/router';
-  
+// import
 
 
 
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   // loginForm: FormGroup;
 
  formData;
+//  loggedIn: BehaviourSubject<Boolean>;
 
   loginForm = this.fb.group({
     name: ['' ],
@@ -29,19 +30,19 @@ export class LoginComponent implements OnInit {
 
   constructor( private fb: FormBuilder, private router: Router) { }
 
- 
+
 
   ngOnInit() {
-    
+
   }
 
   get userRole(): any { return this.loginForm.get('role')};
 
   onSubmit(){
-    
+
   this.formData = this.loginForm.value;
 
-    
+
      if(this.formData.role == "Manager"){
         this.router.navigate(['/manager']);
      }

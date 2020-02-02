@@ -3,7 +3,7 @@
     <div class="head-container">
       <span>DynaEats</span>
       <!-- <span class="">Login</span> -->
-      <button mat-raised-button (click)="signOut();" class="logout-btn">LogOut</button>
+      <button mat-raised-button (click)="signOut();" class="logout-btn" *ngIf="router.url !== '/login'">LogOut</button>
     </div>
 
   </mat-toolbar>

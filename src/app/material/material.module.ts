@@ -7,7 +7,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ManagerEditComponent } from '../manager/manager-edit/manager-edit.component';
 
 
 @NgModule({
@@ -20,7 +22,14 @@ import {MatButtonModule} from '@angular/material/button';
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule
+
+  ],
+
+  entryComponents: [
+    ManagerEditComponent
   ],
 
   exports : [
@@ -30,7 +39,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule
+
   ]
 })
 export class MaterialModule { }

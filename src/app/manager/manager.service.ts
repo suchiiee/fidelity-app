@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PeriodicElement } from './manager.component';
-import { map } from 'rxjs/operators';
+import { map, tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,10 @@ import { map } from 'rxjs/operators';
 export class ManagerService {
 
   apiUrl = 'api/INVENTORY_DATA';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   constructor( private http: HttpClient) { }
 
   getInventoryData(){
@@ -29,6 +33,14 @@ export class ManagerService {
   async getInventoryListChefItalian(){
     return await this.http.get<PeriodicElement[]>(this.apiUrl).pipe(
       map(inventory => inventory.filter(inventory_name=> inventory_name.italian=='Y'|| inventory_name.italian=='')));
+  }
+
+  getInventoryById(id:number):Observable<PeriodicElement>{
+    return this.http.get<PeriodicElement>(this.apiUrl+"/"+id);
+  }
+
+  updateInventory(inventory: PeriodicElement): Observable<number> {
+    return this.http.put<number>(this.apiUrl+"/"+inventory.id, inventory, this.httpOptions);
   }
 
 }

@@ -8,7 +8,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( private router : Router) { }
+  constructor( public router : Router) { }
 
   ngOnInit() {
   }
