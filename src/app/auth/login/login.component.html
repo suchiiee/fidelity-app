@@ -1,0 +1,38 @@
+
+<div class="page-banner">
+
+</div>
+
+<mat-card>
+  <h1>Hi User, Please Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"  class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" formControlName="name" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" type="password" formControlName="password" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Role</mat-label>
+
+        <!-- <mat-option *ngFor="let role of roles" [value]="role.value" formControlName="role">
+          {{role.viewValue}}
+        </mat-option> -->
+        <select matNativeControl required formControlName="role">
+          <option value="Manager">Manager</option>
+          <option value="Indian-Chef">Indian Chef</option>
+          <option value="Italian-Chef">Italian Chef</option>
+          <option value="Bakery-Chef">Bakery Chef</option>
+        </select>
+
+    </mat-form-field>
+
+
+      <button mat-raised-button [disabled]="!loginForm.valid"> Login</button>
+
+  </form>
+
+</mat-card>
+

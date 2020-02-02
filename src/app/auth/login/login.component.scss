@@ -1,0 +1,43 @@
+.example-form {
+  min-width: 150px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+h1 {
+  font-weight: 400;
+  text-align: center;
+}
+
+mat-card.mat-card {
+  padding: 50px;
+  margin-top: 60px !important;
+  max-width:600px;
+  margin: 0 auto;
+}
+
+.page-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url('/assets/cook.jpg');
+  z-index: -1;
+  background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+button{
+  margin-top: 30px;;
+}
+
+
+.logout-btn{
+  display:none;
+}

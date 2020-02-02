@@ -1,0 +1,32 @@
+
+.container{
+  max-width: 1170px;
+
+}
+
+.head-container {
+  flex: 0 1170px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.content{
+  margin: 35px auto;
+}
+
+
+.mat-toolbar {
+  background: #000;
+  color: rgba(0, 0, 0, 0.87);
+
+  span {
+    color: #f57f17;
+    font-family: 'Pacifico', cursive;
+    font-size:36px;
+}
+}
+

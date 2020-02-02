@@ -1,0 +1,49 @@
+table {
+  width: 100%;
+}
+
+input {
+  padding: 5px;
+  width: 50px;
+  border:none;
+}
+
+input:focus{
+  outline: 0;
+}
+
+.active{
+  color: green;
+}
+
+.inactive {
+  color: red;
+}
+
+
+.d-none{
+  display: none;
+}
+
+.success input{
+  border: 1px solid #dbdbdb;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #e0e0e0;
+    font-weight: 400;
+}
+
+
+
+.row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom:30px;
+
+  button{
+    margin-left:20px;
+  }
+}

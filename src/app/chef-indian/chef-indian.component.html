@@ -1,0 +1,35 @@
+<h1>Hello Indian Chef !</h1>
+
+<table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="foodItems">
+    <th mat-header-cell *matHeaderCellDef>  </th>
+    <td mat-cell *matCellDef="let element">  {{element.foodItems}} </td>
+  </ng-container>
+  <ng-container matColumnDef="requiredQty">
+    <th mat-header-cell *matHeaderCellDef> Required Qty</th>
+    <td mat-cell *matCellDef="let element" > <span [className]=" isActive ? 'success' : 'danger'"> <input [className]="element.requiredQty == '' ? 'd-none' : 'd-block'" value=" {{element.requiredQty}}"  readonly  ></span></td>
+  </ng-container>
+
+  <ng-container matColumnDef="receivedQty">
+    <th mat-header-cell *matHeaderCellDef> Received Qty </th>
+    <td mat-cell *matCellDef="let element"><span [className]=" isActive ? 'success' : 'danger'"><input [className]="element.requiredQty == '' ? 'd-none' : 'd-block'" value="  {{element.receivedQty}}" readonly> </span></td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element" > <span  [className]=" element.status == 'OK' ? 'active' : 'inactive'"> {{element.status}}</span> </td>
+  </ng-container>
+
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
